@@ -1,0 +1,80 @@
+.even{background-color: #f1f1f1;}
+
+.odd{background-color:transparent}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, arial, serif; font-size:12px;
+    font-weight:100;
+    color: #888888;
+    margin: 40px;
+    text-shadow: 0 1px 0 white;
+    background: url('img/img_glow.png') #e5e5e5 top left;
+    background-repeat: no-repeat;
+}
+
+.listTableTitle{
+    background: none repeat scroll 0% 0% transparent;
+    font-family: Arial;
+    text-decoration: none;
+    font-size: 19px;
+    color: #ec435b;
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+    text-align: center;
+}
+tbody tr td{
+    border-bottom:1px solid none;
+    padding: 15px;
+    text-align: left;
+
+}
+
+tr.listTableTitle td{
+
+    padding: 15px;
+    text-align: left;
+}
+
+.listTableCell{
+    border-bottom:1px solid none;
+    padding: 15px;
+    text-align: left;
+
+}
+th.listTableTitle{
+    padding: 15px;
+}
+.bold {
+    color: #666666;
+    font-size: 16px;
+
+}
+
+.intro {
+    font-size: 15px;
+    padding:  15px 0px 30px 0px;
+}
+
+.note {
+    font-size: 16px;
+    padding:  10px 0px 10px 0px;
+}
+
+.outro {
+    width: 1300px;
+    font-size: 15px;
+    padding: 40px 0px 30px 0px;
+}
+
+.footer{
+    height: 20px;
+    margin-right: 10px;
+}
+span{
+    margin: 0;
+    padding: 0;
+}
