@@ -54,7 +54,6 @@ $(document).ready(function(){
             "render": function (data, type, full, meta) {
                 var d = new Date(parseInt(data)*1000)
                 return d.toUTCString();
-                //return d.toDateString();
             }
         }, {
             "targets": 3,
@@ -108,10 +107,10 @@ function handleFileSelect(evt) {
 
         reader.readAsText(f);
 
-        $("#tableFileBody").removeClass('emptyTable'); //Only read from file first time
-    }
-    else 
-        alert('This isn´t file TransportSecurity');
+        $("#tableFileBody").removeClass('emptyTable'); // Only read from file first time
+    } else {
+            alert('This isn´t file TransportSecurity');
+        }
     }
 }
 
@@ -148,10 +147,10 @@ function handleDragOver(evt) {
 
         reader.readAsText(f);
 
-        $("#tableFileBody").removeClass('emptyTable'); //Only read from file first time
-    }
-    else 
-        alert('This isn´t file TransportSecurity');
+        $("#tableFileBody").removeClass('emptyTable'); // Only read from file first time
+        } else {
+            alert('This isn´t file TransportSecurity');
+        }
     }
 }
 
