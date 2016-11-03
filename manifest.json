@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
   "name": "PinPatrol",
-  "version": "0.1",
-  "description": "Read TransportSecurity file.",
+  "short_name": "PinPatrol for Chrome",
+  "version": "0.2",
+  "description": "This table shows, in a readable format, the state of HSTS and HPKP domains stored by the browser. It will also try to reverse the domains stored in HSTS and HPKP database comparing the domains against your browsing history.",
   "author": "ElevenPaths",
   "icons": {
     "16": "data/img/icon-16.png",
