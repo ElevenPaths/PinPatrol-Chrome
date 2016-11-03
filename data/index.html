@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <title>PinPatrol</title>
+    <link rel="shortcut icon" type="image/png" href="img/icon-16.png"/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/PinPatrol.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/PinPatrol.css"/>
+</head>
+<body>
+<img src="img/logo_pinpatrol.png" >
+<p class="intro">This table shows, in a readable format, the state of HSTS and HPKP domains stored by the browser. </br> It will also try to reverse the domains stored in HSTS and HPKP database comparing the domains against your browsing history.</p>
+<table id="tableFile" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr class='listTableTitle'>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="Domain protected under HSTS or HPKP.">Domain</span></th>
+        <th class='listTableTitle'><span>HSTS/HPKP</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="Last day the domain was visited / Number of days since 01/01/70.">Date</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="Max-age of HSTS or HPKP.">Expiration Time</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="This is a Firefox value.SecurityPropertyUnset if 0, SecurityPropertySet if 1 or SecurityPropertyKnockout if 2">Mode</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="Whether the HSTS or HPKP directive includes subdomains.">Subdomains</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="List of pins in the HPKP header.">HPKP Pins</span></th>
+        <th class='listTableTitle'><span data-toggle="tooltip" data-placement="top" title="Report URI.">Report URI</span></th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="Domain protected under HSTS or HPKP.">Domain</span></th>
+        <th><span>HSTS/HPKP</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="Last day the domain was visited / Number of days since 01/01/70.">Date</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="Max-age of HSTS or HPKP.">Expiration Time</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="This is a Firefox value.SecurityPropertyUnset if 0, SecurityPropertySet if 1 or SecurityPropertyKnockout if 2">Mode</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="Whether the HSTS or HPKP directive includes subdomains.">Subdomains</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="List of pins in the HPKP header.">HPKP Pins</span></th>
+        <th><span data-toggle="tooltip" data-placement="bottom" title="Report URI.">Report URI</span></th>
+    </tr>
+    </tfoot>
+    <tbody id="tableFileBody" class="emptyTable">
+    </tbody>
+</table>
+<input id="files" type="file" style="visibility:hidden"/>
+<p class="outro"><a href="https://www.elevenpaths.com"><img class="footer" src="img/logo_elevenpaths.png" ></a>Copyright 2016, ElevenPaths</p>
+</body>
+</html>
