@@ -171,7 +171,7 @@ function writeTable(array){
             }
 
             if (array[i][0]["report-uri"]) {
-                var reporturi = "true";
+                var reporturi = array[i][0]["report-uri"];
             } else {
                 var reporturi = "-";
             }
@@ -193,17 +193,12 @@ function writeTable(array){
             var dateDate = array[i][0]["sts_observed"];
             var dateExpire = array[i][0]["expiry"];
             var mode = array[i][0]["mode"];
+            var reporturi = "-"
 
             if (array[i][0]["sts_include_subdomains"]) {
                 var subDomains = "includeSubdomains";
             } else {
                 var subDomains = "-";
-            }
-
-            if (array[i][0]["report-uri"]) {
-                var reporturi = "true";
-            } else {
-                var reporturi = "-";
             }
 
             var fpins = "-";
