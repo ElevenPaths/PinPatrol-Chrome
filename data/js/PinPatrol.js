@@ -3,6 +3,17 @@ var historyMaxResult = 1000000000;  //MaxResults for history, default 100
 var historyStartTime = 0;  //Start time for history, default last 24h
 
 $(document).ready(function(){
+    var os = getOS();
+    var sEmptyTable;
+    if (os === 'macOS') {
+        sEmptyTable = `<div id=\"filesclick\" class=\"note\">Click here or drag and drop TransportSecurity file from your profile or any other file with TransportSecurity format. OS Detected: ${os}<br>On macOS you may need to open a terminal and run "chflags nohidden ~/Library/" first.</div><div class=\"note\"><b>File location on macOS:</b> ~/Library/Application Support/Google/Chrome/Default/TransportSecurity</div>`
+    } else if (os === 'Linux') {
+        sEmptyTable = `<div id=\"filesclick\" class=\"note\">Click here or drag and drop TransportSecurity file from your profile or any other file with TransportSecurity format. OS Detected: ${os}</div><div class=\"note\"><b>Linux:</b> ~/.config/google-chrome/Default</div>`
+    } else if (os === 'Windows') {
+        sEmptyTable = `<div id=\"filesclick\" class=\"note\">Click here or drag and drop TransportSecurity file from your profile or any other file with TransportSecurity format. OS Detected: ${os}</div><div class=\"note\"><b>Windows:</b> %localappdata%\\Google\\Chrome\\User Data\\Default<br></div>`
+    } else {
+        sEmptyTable = '<div id=\"filesclick\" class=\"note\">Click here or drag and drop TransportSecurity file from your profile or any other file with TransportSecurity format. OS could not be detected.<br>On macOS you may need to open a terminal and run "chflags nohidden ~/Library/" first.</div><div class=\"note\"><b>Windows:</b> %localappdata%\\Google\\Chrome\\User Data\\Default<br><b>Mac OS X:</b> ~/Library/Application Support/Google/Chrome/Default<br><b>Linux:</b> ~/.config/google-chrome/Default</div>'
+    }
 
     chrome.history.search({text:'', startTime:historyStartTime, maxResults:historyMaxResult}, function(data) {
         data.forEach(function(page) {
@@ -31,6 +42,7 @@ $(document).ready(function(){
         "initComplete": function( settings, json ) {
             $('div.loading').remove();
         },
+        "oLanguage": {"sEmptyTable": sEmptyTable},
         "columnDefs": [{
             "targets": 0,
             "createdCell": function (td, cellData, rowData, row, col) {
@@ -357,4 +369,21 @@ function Base64Encode(str) {
     str = str.slice(0, str.length-pad.length) + pad;
 
     return str;
+}
+
+function getOS() {
+    var platform = window.navigator.platform,
+        macOSPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        os = null;
+
+    if (macOSPlatforms.indexOf(platform) !== -1) {
+        os = 'macOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        os = 'Windows';
+    } else if (!os && /Linux/.test(platform)) {
+        os = 'Linux';
+    }
+
+    return os;
 }
